@@ -36,6 +36,3 @@ Oversight decision: A staff member must visually review and approve every AI-gen
 Justification: In Lab 1, we observed that the model produces polished output even when given ambiguous or incomplete input. Because the alert directly affects whether a food-insecure student makes a trip across campus, and because the model cannot assess food safety or input completeness, human review is the only check between a bad input and a harmful outcome.
 The one change: We would add an input validation step that requires staff to confirm food condition safe, unsure, do not donate before the alert is generated. If the staff member selects "unsure," the system blocks the alert and prompts a supervisor check instead of generating text.
 What it costs: This adds approximately 30–60 seconds per alert and requires staff training on the three-option condition field. It reduces the speed advantage of the system slightly, but protects the students the system is designed to serve  particularly those at the Spartan Food Pantry who are most vulnerable to a misdirected or misleading alert.
-
-Colab below - 
-https://colab.research.google.com/drive/1cyUztLPyUNg9H68S_QW37kAxed-Pnm9L?usp=sharing
