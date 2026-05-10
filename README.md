@@ -1,3 +1,4 @@
+
 SJSU Dining Hall Food Waste Reduction
 Team: Isaac Nawabi · Zohal Sayed · Simrit Mann
 Course: 110A Fundamentals of MIS | SJSU Spring 2026
@@ -17,20 +18,24 @@ What the AI does: Gemini 2.0 Flash receives that input through a system prompt t
 What comes out: A plain-language alert such as:
 "Hey Spartans! The Dining Commons has about 30 servings of pasta, salad, and garlic bread available for free pickup tonight at 7:30 PM at the main entrance. No sign-up needed just stop by before closing. Don't let good food go to waste!"
 Who acts on it: The alert is reviewed by the staff member (a 10-second read) and then posted to the SJSU SAMMY App, where food-insecure students like Maria can see it in real time and pick up the food before it is discarded.
-📸 [Screenshot of notebook output — Test Case 1 — to be added after running]
-📸 [Screenshot of notebook output — Test Case 2 — to be added after running]
-📸 [Screenshot of edge case output — to be added after running]
+Test Case 1
+<img width="2048" height="144" alt="unknown" src="https://github.com/user-attachments/assets/c80add61-da3d-43a7-b19a-aab95195901d" />
+Test Case 2
+<img width="2048" height="115" alt="unknown" src="https://github.com/user-attachments/assets/55b4de9b-6e56-44a8-8345-081f9d1ce42b" />
+Screenshot of edge case output 
+<img width="2048" height="320" alt="unknown" src="https://github.com/user-attachments/assets/090081ef-16ea-4b4f-a89e-da02ec577889" />
 
-4. Failure Case
+
+5. Failure Case
 The failure: A staff member inputs "leftover event food  mixed items, some may have been sitting out" with a quantity of "unknown" and a pickup time of "sometime after 6." Gemini generates a confident, friendly alert anyway  "Come grab free food at the Dining Commons tonight after 6!" without flagging that the food condition is ambiguous or that the quantity and time are too vague to be actionable.
 The real-world consequence: Mia walks across campus at 6:30 PM based on the alert, finds nothing, and loses trust in the system. Worse, if food that had been sitting out too long was redirected to the Spartan Food Pantry without a staff safety check, a student could consume food that causes illness.
 Lab connection: In Lab 1, we observed that the model produces confident, well-formatted output regardless of input quality. A vague or incomplete prompt still generates a polished response — the model does not flag uncertainty or refuse to act. This showed us that confident output is not the same as accurate or safe output, and that input quality directly determines whether the alert is useful or harmful.
 
-5. Oversight and Tradeoff
+6. Oversight and Tradeoff
 Oversight decision: A staff member must visually review and approve every AI-generated alert before it is posted. No alert goes live automatically. This review happens at the moment the alert is drafted, before it reaches any student.
 Justification: In Lab 1, we observed that the model produces polished output even when given ambiguous or incomplete input. Because the alert directly affects whether a food-insecure student makes a trip across campus, and because the model cannot assess food safety or input completeness, human review is the only check between a bad input and a harmful outcome.
 The one change: We would add an input validation step that requires staff to confirm food condition safe, unsure, do not donate before the alert is generated. If the staff member selects "unsure," the system blocks the alert and prompts a supervisor check instead of generating text.
 What it costs: This adds approximately 30–60 seconds per alert and requires staff training on the three-option condition field. It reduces the speed advantage of the system slightly, but protects the students the system is designed to serve  particularly those at the Spartan Food Pantry who are most vulnerable to a misdirected or misleading alert.
 
-
-
+Colab below - 
+https://colab.research.google.com/drive/1cyUztLPyUNg9H68S_QW37kAxed-Pnm9L?usp=sharing
